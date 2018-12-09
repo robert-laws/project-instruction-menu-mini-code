@@ -1,0 +1,10 @@
+/*** media queries ***/
+
+// small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+@mixin sm {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}

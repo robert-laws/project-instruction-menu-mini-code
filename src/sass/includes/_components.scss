@@ -1,0 +1,80 @@
+.menu-title {
+  font-size: 2.2rem;
+  padding: 0.5rem 1rem;
+
+  background-color: $color-tertiary;
+  color: $color-primary;
+
+  border-radius: 5px 5px 0 0;
+
+  @include sm {
+    font-size: 1.6rem;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.menu-basic,
+.menu-advanced,
+.menu-special {
+  margin: 0;
+}
+
+.menu-basic {
+  $self: &;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__instruction-item {
+    border: 1px solid rgba($color-tertiary, 25%);
+    margin: 1rem;
+    flex: 1 0 47%;
+    padding: 0.5rem 1rem;
+
+    @include sm {
+      flex: 1 0 100%;
+    }
+
+    #{$self}__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      #{$self}__title {
+        font-size: 1.8rem;
+      }
+
+      #{$self}__time {
+        font-size: 1.2rem;
+      }
+    }
+    
+    #{$self}__description {
+      padding: 0.8rem 1rem 0 1.8rem;
+
+      ul {
+        font-size: 1.2rem;
+      }
+    }
+
+    #{$self}__button {
+      margin: 1rem -1rem -0.5rem;
+
+      button {
+        border: none;
+        outline: none;
+        background-color: $color-primary;
+        color: $color-white;
+        display: block;
+        width: 100%;
+        padding: 0.4rem 1rem;
+        text-align: right;
+      }
+    }
+  }
+}
