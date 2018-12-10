@@ -1,5 +1,3 @@
-// alert('hello');
-
 function showDetails(element) {
   // var currentNodeClass = element.parentNode.getAttribute('class');
   // var detailsNode = document.getElementsByClassName(currentNodeClass).item(0).nextElementSibling;

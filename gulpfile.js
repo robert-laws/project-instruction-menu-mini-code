@@ -1,10 +1,15 @@
 var gulp = require("gulp");
+var gulpif = require("gulp-if");
 var pug = require("gulp-pug");
 var sass = require("gulp-sass");
 var prefix = require("gulp-autoprefixer");
+var rename = require("gulp-rename");
+var cssmin = require("gulp-cssnano");
 var sourcemaps = require("gulp-sourcemaps");
 var del = require("del");
 var browserSync = require("browser-sync");
+
+var isProduction = false;
 
 var paths = {
   styles: {
@@ -49,6 +54,8 @@ gulp.task("sass", function() {
     .pipe(sass(sassOptions).on("error", sass.logError))
     .pipe(prefix(prefixerOptions))
     .pipe(sourcemaps.write())
+    .pipe(gulpif(isProduction, cssmin()))
+    .pipe(gulpif(isProduction, rename({ suffix: '.min'})))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream());
 });
