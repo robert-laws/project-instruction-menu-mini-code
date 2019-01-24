@@ -1,11 +1,13 @@
-// COLORS, etc.
-@import "includes/variables";
+// ABSTRACTS
+@import "abstracts/resets";
+@import "abstracts/variables";
+@import "abstracts/colors";
 
 // MIXINS - media queries, etc.
 @import "includes/mixins";
 
 // LAYOUT
-@import "includes/layout";
+@import "layouts/layout";
 
 // COMPONENTS
-@import "includes/components";
+@import "components/components";
