@@ -64,15 +64,8 @@ gulp.task('styles', function() {
     .pipe(sass(sassOptions).on("error", sass.logError))
     .pipe(prefix(prefixerOptions))
     .pipe(sourcemaps.write())
-<<<<<<< HEAD
     .pipe(gulp.dest(paths.styles.dest));
   return stream;
-=======
-    .pipe(gulpif(isProduction, cssmin()))
-    .pipe(gulpif(isProduction, rename({ suffix: '.min'})))
-    .pipe(gulp.dest(paths.styles.dest))
-    .pipe(browserSync.stream());
->>>>>>> c7f7a314cfed28e0404db12bc36d5704dad2a12c
 });
 
 gulp.task('scripts', function() {
