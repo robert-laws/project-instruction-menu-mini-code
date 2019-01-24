@@ -20,11 +20,12 @@
 
   h2 {
     margin-left: 0.5rem;
-    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
   }
 
   h2:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 }
 
@@ -44,6 +45,7 @@
     // border: 1px solid $color-tertiary;
     // margin: 1rem;
     flex: 0 0 49%;
+    // flex: 0 0 88%;
     // display: flex;
     // flex-direction: column;
     margin-bottom: 1rem;
@@ -73,6 +75,11 @@
       border: 1px solid $color-tertiary;
       border-top: none;
       padding: 0.5rem 1rem;
+      min-height: 172px;
+
+      @include sm {
+        min-height: 0;
+      }
 
       ul {
         font-size: 1.3rem;

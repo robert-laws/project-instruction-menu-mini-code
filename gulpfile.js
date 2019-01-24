@@ -1,12 +1,17 @@
 var gulp = require("gulp");
+var gulpif = require("gulp-if");
 var pug = require("gulp-pug");
 var sass = require("gulp-sass");
 var cleanCSS = require('gulp-clean-css')
 var concat = require('gulp-concat')
 var prefix = require("gulp-autoprefixer");
+var rename = require("gulp-rename");
+var cssmin = require("gulp-cssnano");
 var sourcemaps = require("gulp-sourcemaps");
 var del = require("del");
 var browserSync = require("browser-sync").create();
+
+var isProduction = false;
 
 var paths = {
   styles: {
@@ -59,8 +64,15 @@ gulp.task('styles', function() {
     .pipe(sass(sassOptions).on("error", sass.logError))
     .pipe(prefix(prefixerOptions))
     .pipe(sourcemaps.write())
+<<<<<<< HEAD
     .pipe(gulp.dest(paths.styles.dest));
   return stream;
+=======
+    .pipe(gulpif(isProduction, cssmin()))
+    .pipe(gulpif(isProduction, rename({ suffix: '.min'})))
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(browserSync.stream());
+>>>>>>> c7f7a314cfed28e0404db12bc36d5704dad2a12c
 });
 
 gulp.task('scripts', function() {
